@@ -1,0 +1,20 @@
+{
+    "name": "extra_space_keypad",
+    "productId": "0x0002",
+    "vendorId": "0x4744",
+    "matrix": {
+        "rows": 1,
+        "cols": 4
+    },
+    "layouts": {
+        "keymap": [
+            [
+                "0,0",
+                "0,1",
+                "0,2",
+                "0,3"
+            ]
+        ]
+    },
+    "menus": ["qmk_rgb_matrix"]
+}
