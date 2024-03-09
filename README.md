@@ -12,7 +12,7 @@ TODO etsy
 
 ### Write your own firmware (Arduino IDE)
 
-It is very easy to start programming your own firmware for the ESK using Arduino studio. Please read arduino.md for more information on how to do so.
+It is very easy to start programming your own firmware for the ESK using Arduino studio. Please read [arduino.md](arduino.md) for more information on how to do so.
 
 ### Use QMK firmware
 
@@ -20,4 +20,4 @@ The ESK is also compatible with QMK firmware. QMK is no longer accepting pull re
 
 #### Configuration using Via
 
-One awesome benefit of using QMK firmware is that it allows the keypad to be configured using the Via web app. This browser based tool allows you to directly connect to the ESK and configure the bindings and lighting whenever you want. Via requires a valid pull request in QMK in order to get native support for your device. Hopefully coming soon. For now you can follow the instructions in qmk.md to manually add the Via configuration for the ESK.
+One awesome benefit of using QMK firmware is that it allows the keypad to be configured using the Via web app. This browser based tool allows you to directly connect to the ESK and configure the bindings and lighting whenever you want. Via requires a valid pull request in QMK in order to get native support for your device. Hopefully coming soon. For now you can follow the instructions in [qmk.md](qmk.md) to manually add the Via configuration for the ESK.
