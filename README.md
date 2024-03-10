@@ -1,8 +1,8 @@
 # Extra Space Keypad
 
-The Extra Space Keypad (ESK) is a small, simple 4 button mechanical RGB backlit keypad. It utilizes a Waveshare RP2040 Zero microcontroller and a custom made PCB with hot swappable 1350 sockets. The thin profile (<15mm) allows it to sit comfortably underneath the spacebar of most keyboards without interference. This gives your thumb easy access to 4 more keys that you can configure to your liking.
+The Extra Space Keypad (ESK) is a small, simple 4 button mechanical RGB backlit keypad. It utilizes a Waveshare RP2040 Zero microcontroller and hot swappable 1350 sockets. The thin profile (<15mm) allows it to sit comfortably underneath the spacebar of most keyboards without interference. This gives your thumb easy access to 4 more keys that you can configure to your liking.
 
-It comes pre assembled with 4 Kailh Choc v1 brown switches. The Choc v1 style switches have a unique keycap interface that is very 3D printer friendly. So while it may lack compatibility with cherry style keycaps, anyone can easily design and print their own!
+It comes preassembled with 4 Kailh Choc v1 brown switches. The Choc v1 style switches have a unique keycap interface that is very 3D printer friendly. So while it may lack compatibility with cherry style keycaps, anyone can easily design and print their own! Alternatively, you can also swap to Kailh Choc v2 switches if you would like to use cherry compatible keycaps.
 
 ## Where to get one
 
