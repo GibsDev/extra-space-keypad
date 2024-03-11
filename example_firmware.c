@@ -18,9 +18,7 @@
 #define DEBOUNCE_TIME 5
 
 // The RGB color to show when a key is not pressed
-#define BUTTON_COLOR_MODE_1 CRGB(5, 0, 0)
-// Used for the secondary mode
-#define BUTTON_COLOR_MODE_2 CRGB(0, 5, 0)
+#define BUTTON_COLOR CRGB(5, 0, 0)
 // The RGB color to show when a key is pressed
 #define BUTTON_DOWN_COLOR CRGB(20, 20, 20)
 
@@ -37,9 +35,6 @@ int keys[] = { 0, 0, 0, 0 };
 // The default keys assigned to the buttons
 uint8_t BINDS[] = { '-', '=', '[', ']' };
 
-// Set the default button color
-CRGB button_color = BUTTON_COLOR_MODE_1;
-
 // The main LED buffer for the buttons
 CRGB leds[NUM_LEDS];
 // The led buffer for the built in LED
@@ -48,21 +43,12 @@ CRGB built_in_led[1];
 // Rerurpose the reset button on the microcontroller to switch "modes"
 const unsigned int NUMBER_OF_MODES = 2;
 
-// "Hacky" way to track and increment modes each time the microcontroller resets (with the reset button)
-// https://arduino.stackexchange.com/questions/32378/how-do-i-repurpose-arduinos-reset-button
-__attribute__((section(".noinit"))) unsigned int mode;
-
 void onKeyPressed(int);
 void onKeyReleased(int);
 
 void setup() {
   // At startup, switch to the next mode (and cycle back to 0 if we've gone too far)
   if (++mode >= NUMBER_OF_MODES) mode = 0;
-
-  // Change the default button color in the secondary mode
-  if (mode == 1) {
-    button_color = BUTTON_COLOR_MODE_2;
-  }
 
   // Register the buton LEDs into FastLED
   FastLED.addLeds<WS2812, LED_PIN, GRB>(leds, NUM_LEDS);
@@ -72,7 +58,7 @@ void setup() {
   // QMK unfortunately does not allow multiple WS2812 led strings out of the box, but writing our own firmware allows us to use both!
 
   // Set the initial color of all the LEDs
-  fill_solid(leds, NUM_LEDS, button_color);
+  fill_solid(leds, NUM_LEDS, BUTTON_COLOR);
   // "Show" (write) the current LED state registered in FastLED (`leds` in this case)
   FastLED.show();
 
@@ -112,7 +98,7 @@ void loop() {
     }
   }
   // LED animation "frame" (~60 times per second)
-  if (loopstart - animation_timer > (1000/60)) {
+  if (loopstart - animation_timer >= (1000/60)) {
     animation_timer = millis();
     // Fade the build in LEDs brightness
     built_in_led[0] -= CRGB(8, 8, 8);
@@ -141,7 +127,7 @@ void onKeyReleased(int key_index) {
   // "Release" the key
   Keyboard.release(BINDS[key_index]);
   // Change the led for the key
-  leds[key_index] = button_color;
+  leds[key_index] = BUTTON_COLOR;
   // Update the LED matrix
   FastLED.show();
 }
