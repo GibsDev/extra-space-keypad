@@ -40,16 +40,10 @@ CRGB leds[NUM_LEDS];
 // The led buffer for the built in LED
 CRGB built_in_led[1];
 
-// Rerurpose the reset button on the microcontroller to switch "modes"
-const unsigned int NUMBER_OF_MODES = 2;
-
 void onKeyPressed(int);
 void onKeyReleased(int);
 
 void setup() {
-  // At startup, switch to the next mode (and cycle back to 0 if we've gone too far)
-  if (++mode >= NUMBER_OF_MODES) mode = 0;
-
   // Register the buton LEDs into FastLED
   FastLED.addLeds<WS2812, LED_PIN, GRB>(leds, NUM_LEDS);
   // Register the build in LED into FastLED (for some reason we cannot specify GRB because it causes a compilation error, but we don't need it)
