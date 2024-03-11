@@ -94,7 +94,7 @@ void loop() {
   // LED animation "frame" (~60 times per second)
   if (loopstart - animation_timer >= (1000/60)) {
     animation_timer = millis();
-    // Fade the build in LEDs brightness
+    // Fade the built in LED's brightness
     built_in_led[0] -= CRGB(8, 8, 8);
     FastLED.show();
   }
